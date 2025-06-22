@@ -1,5 +1,5 @@
 # Default values for dummy-website
-replicaCount: 1
+replicaCount: 2
 
 image:
   repository: nginx
@@ -8,10 +8,10 @@ image:
 
 # Configurable message to show GitOps changes
 website:
-  title: "GitOps Test Website"
-  message: "Version 1.0 - Initial deployment"
-  backgroundColor: "#f0f8ff"
-  textColor: "#333333"
+  title: "GitOps Test Website - UPDATED!"
+  message: "Version 2.0 - GitOps is working! 🚀"
+  backgroundColor: "#e6ffe6"
+  textColor: "#2d5a2d"
 
 service:
   type: ClusterIP
@@ -20,5 +20,5 @@ service:
 # Environment info
 environment: "local"
 deployment:
-  timestamp: "2024-01-01T00:00:00Z"
-  version: "v1.0.0" 
+  timestamp: "2025-06-22T12:15:00Z"
+  version: "v2.0.0" 
