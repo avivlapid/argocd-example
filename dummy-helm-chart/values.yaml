@@ -1,0 +1,24 @@
+# Default values for dummy-website
+replicaCount: 1
+
+image:
+  repository: nginx
+  tag: latest
+  pullPolicy: Always
+
+# Configurable message to show GitOps changes
+website:
+  title: "GitOps Test Website"
+  message: "Version 1.0 - Initial deployment"
+  backgroundColor: "#f0f8ff"
+  textColor: "#333333"
+
+service:
+  type: ClusterIP
+  port: 80
+
+# Environment info
+environment: "local"
+deployment:
+  timestamp: "2024-01-01T00:00:00Z"
+  version: "v1.0.0" 
