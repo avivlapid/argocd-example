@@ -9,7 +9,7 @@ image:
 # Configurable message to show GitOps changes
 website:
   title: "GitOps Test Website - UPDATED!"
-  message: "Version 3.0 - GitOps is working! 🚀"
+  message: "Version 4.0 - GitOps is working! 🚀"
   backgroundColor: "#e6ffe6"
   textColor: "#2d5a2d"
 
