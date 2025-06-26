@@ -1,14 +1,14 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "dummy-website.name" -}}
+{{- define "dummy-helm-chart.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Create a default fully qualified app name.
 */}}
-{{- define "dummy-website.fullname" -}}
+{{- define "dummy-helm-chart.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -24,16 +24,16 @@ Create a default fully qualified app name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "dummy-website.chart" -}}
+{{- define "dummy-helm-chart.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "dummy-website.labels" -}}
-helm.sh/chart: {{ include "dummy-website.chart" . }}
-{{ include "dummy-website.selectorLabels" . }}
+{{- define "dummy-helm-chart.labels" -}}
+helm.sh/chart: {{ include "dummy-helm-chart.chart" . }}
+{{ include "dummy-helm-chart.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,7 +45,7 @@ gitops.example.com/version: {{ .Values.deployment.version }}
 {{/*
 Selector labels
 */}}
-{{- define "dummy-website.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "dummy-website.name" . }}
+{{- define "dummy-helm-chart.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "dummy-helm-chart.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }} 

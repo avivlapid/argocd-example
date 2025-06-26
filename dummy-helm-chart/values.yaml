@@ -1,24 +1,23 @@
-# Default values for dummy-website
-replicaCount: 2
+# Configuration for organization pods
+# Organizations will be loaded from ../organizations.yaml
 
-image:
-  repository: nginx
-  tag: latest
-  pullPolicy: Always
-
-# Configurable message to show GitOps changes
-website:
-  title: "GitOps Test Website - UPDATED!"
-  message: "Version 4.0 - GitOps is working! 🚀"
-  backgroundColor: "#e6ffe6"
-  textColor: "#2d5a2d"
+deployment:
+  replicaCount: 1
+  image:
+    repository: busybox
+    tag: "1.35"
+    pullPolicy: IfNotPresent
+  command: ["sleep", "3600"]
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
 
 service:
-  type: ClusterIP
-  port: 80
+  enabled: false
 
-# Environment info
-environment: "local"
-deployment:
-  timestamp: "2025-06-22T12:15:00Z"
-  version: "v2.0.0" 
+ingress:
+  enabled: false 
