@@ -1,0 +1,23 @@
+# Configuration for organization pods
+# Organizations will be loaded from ../organizations.yaml
+
+deployment:
+  replicaCount: 1
+  image:
+    repository: busybox
+    tag: "1.35"
+    pullPolicy: IfNotPresent
+  command: ["sleep", "3600"]
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+service:
+  enabled: false
+
+ingress:
+  enabled: false 

@@ -1,0 +1,103 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "dummy-website.fullname" . }}-html
+  labels:
+    {{- include "dummy-website.labels" . | nindent 4 }}
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ .Values.website.title }}</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: {{ .Values.website.backgroundColor }};
+                color: {{ .Values.website.textColor }};
+                margin: 0;
+                padding: 20px;
+                text-align: center;
+            }
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+                background: white;
+                padding: 40px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+            .header {
+                border-bottom: 2px solid #007acc;
+                padding-bottom: 20px;
+                margin-bottom: 30px;
+            }
+            .info-box {
+                background: #f8f9fa;
+                padding: 20px;
+                border-radius: 5px;
+                margin: 20px 0;
+                text-align: left;
+            }
+            .gitops-indicator {
+                background: #28a745;
+                color: white;
+                padding: 10px;
+                border-radius: 5px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>{{ .Values.website.title }}</h1>
+                <div class="gitops-indicator">🚀 GitOps Deployment Active</div>
+            </div>
+            
+            <div class="info-box">
+                <h2>📢 Current Message:</h2>
+                <p><strong>{{ .Values.website.message }}</strong></p>
+            </div>
+            
+            <div class="info-box">
+                <h2>📊 Deployment Info:</h2>
+                <ul>
+                    <li><strong>Environment:</strong> {{ .Values.environment }}</li>
+                    <li><strong>Version:</strong> {{ .Values.deployment.version }}</li>
+                    <li><strong>Timestamp:</strong> {{ .Values.deployment.timestamp }}</li>
+                    <li><strong>Replicas:</strong> {{ .Values.replicaCount }}</li>
+                </ul>
+            </div>
+            
+            <div class="info-box">
+                <h2>🔄 GitOps Test Instructions:</h2>
+                <ol>
+                    <li>Change values in your Git repository</li>
+                    <li>Commit and push changes</li>
+                    <li>Watch ArgoCD automatically sync</li>
+                    <li>Refresh this page to see changes!</li>
+                </ol>
+            </div>
+            
+            <div class="info-box">
+                <h2>🎨 Customizable Properties:</h2>
+                <ul>
+                    <li>Title: {{ .Values.website.title }}</li>
+                    <li>Background Color: {{ .Values.website.backgroundColor }}</li>
+                    <li>Text Color: {{ .Values.website.textColor }}</li>
+                    <li>Message: {{ .Values.website.message }}</li>
+                </ul>
+            </div>
+            
+            <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd;">
+                <p><em>Last updated: <span id="timestamp"></span></em></p>
+                <script>
+                    document.getElementById('timestamp').textContent = new Date().toLocaleString();
+                </script>
+            </footer>
+        </div>
+    </body>
+    </html> 

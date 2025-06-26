@@ -1,0 +1,22 @@
+organization: test-org1
+description: "Test Organization 1"
+
+---
+organization: test-org2
+description: "Test Organization 2"
+
+---
+organization: acme-corp
+description: "ACME Corporation - Main business unit"
+
+---
+organization: tech-innovations
+description: "Tech Innovations - R&D division"
+
+---
+organization: marketing-dept
+<<<<<<< HEAD
+description: "Marketing Department - Customer outreach" 
+=======
+description: "Marketing Department - Customer outreach" 
+>>>>>>> df313bbf58ebda6f7afb0cd259889d0d97fc41eb
