@@ -38,8 +38,12 @@ helm.sh/chart: {{ include "dummy-helm-chart.chart" . }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- if .Values.environment }}
 gitops.example.com/environment: {{ .Values.environment }}
+{{- end }}
+{{- if .Values.deployment.version }}
 gitops.example.com/version: {{ .Values.deployment.version }}
+{{- end }}
 {{- end }}
 
 {{/*
