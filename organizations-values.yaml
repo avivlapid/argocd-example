@@ -1,0 +1,10 @@
+# Organizations configuration as values file for Helm chart
+# This file is used by the single-org-app.yaml
+
+organizations:
+  - organization: Booking
+    description: "ACME Corporation - Main business unit"
+  - organization: Kudelsky
+    description: "Tech Innovations - R&D division"
+  - organization: RV
+    description: "Marketing Department - Customer outreach" 
