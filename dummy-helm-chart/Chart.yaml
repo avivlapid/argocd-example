@@ -1,5 +1,0 @@
-apiVersion: v2
-name: dummy-helm-chart
-description: A simple dummy website for GitOps testing
-version: 0.1.0
-appVersion: "1.0.0" 
