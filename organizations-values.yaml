@@ -6,7 +6,5 @@ organizations:
     description: "ACME Corporation - Main business unit"
   - organization: Kudelsky
     description: "Tech Innovations - R&D division"
-  - organization: RV
-    description: "Marketing Department - Customer outreach" 
   - organization: Test2
     description: "Marketing Department - Customer outreach" 
