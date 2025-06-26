@@ -1,0 +1,40 @@
+{{- range .Values.organizations }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .organization | lower }}-deployment
+  labels:
+    {{- include "dummy-helm-chart.labels" $ | nindent 4 }}
+    organization: {{ .organization | lower }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .organization | lower }}
+      organization: {{ .organization | lower }}
+  template:
+    metadata:
+      labels:
+        app: {{ .organization | lower }}
+        organization: {{ .organization | lower }}
+        {{- include "dummy-helm-chart.labels" $ | nindent 8 }}
+    spec:
+      containers:
+      - name: {{ .organization | lower }}-container
+        image: "{{ $.Values.deployment.image.repository }}:{{ $.Values.deployment.image.tag }}"
+        imagePullPolicy: {{ $.Values.deployment.image.pullPolicy }}
+        command: {{ $.Values.deployment.command | toJson }}
+        env:
+        - name: ORGANIZATION
+          value: "{{ .organization }}"
+        - name: ORG_DESCRIPTION
+          value: "{{ .description }}"
+        - name: POD_PURPOSE
+          value: "empty-pod-for-org"
+        - name: POD_NAME
+          value: "{{ .organization | lower }}"
+        resources:
+          {{- toYaml $.Values.deployment.resources | nindent 10 }}
+      restartPolicy: Always
+{{- end }} 

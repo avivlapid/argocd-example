@@ -1,0 +1,31 @@
+# Configuration for organization pods
+# Organizations will be loaded from ../organizations.yaml
+
+deployment:
+  name: empty-pod
+  replicaCount: 1
+  image:
+    repository: busybox
+    tag: "1.35"
+    pullPolicy: IfNotPresent
+  command: ["sleep", "3600"]
+  env:
+    - name: ORGANIZATION
+      value: "default"
+    - name: ORG_DESCRIPTION
+      value: "Default organization"
+    - name: POD_PURPOSE
+      value: "empty-pod-for-org"
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+service:
+  enabled: false
+
+ingress:
+  enabled: false 
