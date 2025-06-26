@@ -1,30 +1,14 @@
-# This file should be placed in the root of your git repository
-# https://github.com/avivlapid/argocd-example/organizations.yaml
-# Organization whitelist - each org gets its own empty pod
-
 [
   {
-    "organization": "acme-corp",
+    "organization": "Booking",
     "description": "ACME Corporation - Main business unit"
   },
   {
-    "organization": "tech-innovations", 
+    "organization": "Kudelsky", 
     "description": "Tech Innovations - R&D division"
   },
   {
-    "organization": "marketing-dept",
+    "organization": "RV",
     "description": "Marketing Department - Customer outreach"
-  },
-  {
-    "organization": "finance-team",
-    "description": "Finance Team - Financial operations"
-  },
-  {
-    "organization": "hr-department",
-    "description": "Human Resources - Employee management"
-  },
-  {
-    "organization": "support-center",
-    "description": "Support Center - Customer support operations"
   }
-] 
+]
