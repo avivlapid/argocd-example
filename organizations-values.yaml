@@ -8,3 +8,5 @@ organizations:
     description: "Marketing Department - Customer outreach" 
   - organization: NewOrg
     description: "Marketing Department - Customer outreach" 
+  - organization: TestNewOrg
+    description: "Marketing Department - Customer outreach" 
