@@ -16,6 +16,8 @@ deployment:
       value: "Default organization"
     - name: POD_PURPOSE
       value: "empty-pod-for-org"
+    - name: "Example"
+      value: "Win"
   resources:
     limits:
       cpu: 200m
