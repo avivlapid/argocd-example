@@ -33,7 +33,7 @@ spec:
         - name: POD_PURPOSE
           value: "empty-pod-for-org"
         - name: POD_NAME
-          value: "{{ .organization | lower }}"
+          value: "{{ .organization | lower }}-test"
         resources:
           {{- toYaml $.Values.deployment.resources | nindent 10 }}
       restartPolicy: Always
