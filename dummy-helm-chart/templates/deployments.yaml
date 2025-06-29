@@ -3,7 +3,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .organization | lower }}-deployment
+  name: {{ .organization | lower }}-pod
   labels:
     {{- include "dummy-helm-chart.labels" $ | nindent 4 }}
     organization: {{ .organization | lower }}
