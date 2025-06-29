@@ -5,8 +5,6 @@ kind: Deployment
 metadata:
   name: {{ .organization | lower }}-deployment
   labels:
-    app: {{ .organization | lower }}-pod
-    type: pod
     {{- include "dummy-helm-chart.labels" $ | nindent 4 }}
     organization: {{ .organization | lower }}
 spec:
@@ -17,6 +15,7 @@ spec:
       organization: {{ .organization | lower }}
   template:
     metadata:
+      name: {{ .organization | lower }}-pod
       labels:
         app: {{ .organization | lower }}
         organization: {{ .organization | lower }}
