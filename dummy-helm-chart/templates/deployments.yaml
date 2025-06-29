@@ -35,7 +35,9 @@ spec:
         - name: POD_PURPOSE
           value: "empty-pod-for-org"
         - name: POD_NAME
-          value: "{{ .organization | lower }}"
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
         resources:
           {{- toYaml $.Values.deployment.resources | nindent 10 }}
       restartPolicy: Always
