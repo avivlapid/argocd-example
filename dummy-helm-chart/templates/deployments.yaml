@@ -16,7 +16,7 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ .organization | lower }
+        app: {{ .organization | lower }}
         organization: {{ .organization | lower }}
         {{- include "dummy-helm-chart.labels" $ | nindent 8 }}
     spec:
