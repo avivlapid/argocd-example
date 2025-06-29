@@ -3,7 +3,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .organization | lower }}-pod
+  name: {{ .organization | lower }}-deployment
   labels:
     {{- include "dummy-helm-chart.labels" $ | nindent 4 }}
     organization: {{ .organization | lower }}
@@ -33,7 +33,7 @@ spec:
         - name: POD_PURPOSE
           value: "empty-pod-for-org"
         - name: POD_NAME
-          value: "{{ .organization | lower }}-test"
+          value: "{{ .organization | lower }}"
         resources:
           {{- toYaml $.Values.deployment.resources | nindent 10 }}
       restartPolicy: Always
