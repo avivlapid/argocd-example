@@ -15,7 +15,9 @@ spec:
       organization: {{ .organization | lower }}
   template:
     metadata:
+      name: {{ .organization | lower }}-example-outside
       labels:
+        name: {{ .organization | lower }}-example-inside
         app: {{ .organization | lower }}
         organization: {{ .organization | lower }}
         {{- include "dummy-helm-chart.labels" $ | nindent 8 }}
