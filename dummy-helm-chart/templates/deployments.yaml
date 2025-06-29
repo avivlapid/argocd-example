@@ -15,10 +15,8 @@ spec:
       organization: {{ .organization | lower }}
   template:
     metadata:
-      name: {{ .organization | lower }}-pod
       labels:
         app: {{ .organization | lower }
-        name: {{ .organization | lower }}-pod
         organization: {{ .organization | lower }}
         {{- include "dummy-helm-chart.labels" $ | nindent 8 }}
     spec:
